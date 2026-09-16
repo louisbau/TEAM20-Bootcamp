@@ -1,8 +1,8 @@
 # ACCOUNT.md
 
-Account:
-Workflow:
-Date:
+Account: Crelan (Belgian bank)
+Workflow: Internal IT/consultant ticketing — agent looks up the issue, resolves common requests by sending the right document, escalates complex ones to a human
+Date: TBD — within 30 days
 
 Three lines, and nobody can write them for you.
 
