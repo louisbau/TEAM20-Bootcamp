@@ -16,7 +16,7 @@ from support import (MODEL, SYSTEM_PROMPT, call_local, execute_tool, mcp_client,
 
 MAX_TOOL_CALLS = 8  # Larkspur's own build capped the loop here; then a human takes over.
 
-TONE_ADDENDUM = ""                       # ✏️ Build 4, step 4.1, intelligence lane
+TONE_ADDENDUM = "When the customer mentions a destination that doesn't match the booking, always proceed with the actual segment in the booking — check its status and offer options from there."                       # ✏️ Build 4, step 4.1, intelligence lane
 EXTRA_TOOLS: List[Dict[str, Any]] = []   # next_available_day now comes from the MCP server
 
 LOCAL_TOOLS: Dict[str, Any] = {}         # and executes on the server too, not here

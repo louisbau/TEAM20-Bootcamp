@@ -1,5 +1,5 @@
 <!doctype html><meta charset='utf-8'>
-<title>Agent readout: &lt;your pod name&gt;</title>
+<title>Agent readout: monday</title>
 <style>
 body { font: 15px/1.5 -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background: #faf7f2; color: #262220; margin: 0; padding: 36px 28px 64px; }
@@ -38,7 +38,7 @@ th { background: #f4eee4; font-size: 12px; letter-spacing: .05em; text-transform
 .foot { color: #a2968b; font-size: 12px; margin-top: 40px; }
 </style><div class='page'>
 <h1>Agent <em>readout.</em></h1>
-<p class='sub'>Pod &lt;your pod name&gt; · 2026-09-15 18:07</p>
+<p class='sub'>Pod monday · 2026-09-16 15:36</p>
 <h2>Architecture: what the agent is</h2>
 <div class='strip'>
 <div class='stat'><b>11</b><span>tools offered</span></div>
@@ -46,7 +46,7 @@ th { background: #f4eee4; font-size: 12px; letter-spacing: .05em; text-transform
 <div class='stat'><b>2</b><span>served over MCP</span></div>
 <div class='stat'><b>8</b><span>loop ceiling</span></div>
 <div class='stat'><b>1478</b><span>system prompt chars</span></div>
-<div class='stat'><b>0</b><span>tone addendum chars</span></div>
+<div class='stat'><b>175</b><span>tone addendum chars</span></div>
 </div>
 <table><tr><th>tool</th><th>description</th><th>chars</th><th></th></tr>
 <tr><td><span class='pill'>lookup_booking</span></td><td>Retrieve a Larkspur reservation from Altura by confirmation code (PNR) and the passenger&#x27;s last name. Both are</td><td>283</td><td></td></tr>
@@ -65,44 +65,37 @@ th { background: #f4eee4; font-size: 12px; letter-spacing: .05em; text-transform
 <h2>The loop: one conversation, turn by turn</h2>
 <p class='sub'>Trace shown: one conversation, the last one you ran · trace: .workshop\last_trace.json</p>
 <div class='strip'>
-<div class='stat'><b>5</b><span>API turns</span></div>
-<div class='stat'><b>4</b><span>tool calls</span></div>
-<div class='stat'><b>15,928</b><span>tokens in</span></div>
-<div class='stat'><b>738</b><span>tokens out</span></div>
-<div class='stat'><b>17.4s</b><span>wall clock</span></div>
+<div class='stat'><b>4</b><span>API turns</span></div>
+<div class='stat'><b>3</b><span>tool calls</span></div>
+<div class='stat'><b>16,297</b><span>tokens in</span></div>
+<div class='stat'><b>697</b><span>tokens out</span></div>
+<div class='stat'><b>18.4s</b><span>wall clock</span></div>
 </div>
 <div class='turn'>
 <div class='hd'>Turn 1 → messages.create()</div>
-<div class='meta'>sent: 1 msg in context · 9 tools offered</div>
-<div class='meta'>← stop_reason=<b>tool_use</b> · blocks: tool_use · in 2,585 / out 85 · 3.7s</div>
-<div class='tool'>⚙ lookup_booking({&quot;pnr&quot;: &quot;K7PQ2M&quot;, &quot;last_name&quot;: &quot;Marchetti&quot;})</div>
+<div class='meta'>sent: 1 msg in context · 11 tools offered</div>
+<div class='meta'>← stop_reason=<b>tool_use</b> · blocks: tool_use · in 3,513 / out 83 · 2.4s</div>
+<div class='tool'>⚙ lookup_booking({&quot;pnr&quot;: &quot;T9WN4C&quot;, &quot;last_name&quot;: &quot;Zhang&quot;})</div>
 </div>
 <div class='loopback'>↺ stop_reason=tool_use → results appended → loop continues</div>
 <div class='turn'>
 <div class='hd'>Turn 2 → messages.create()</div>
-<div class='meta'>sent: 3 msg in context · 9 tools offered</div>
-<div class='meta'>← stop_reason=<b>tool_use</b> · blocks: tool_use · in 2,907 / out 81 · 1.7s</div>
-<div class='tool'>⚙ get_flight_status({&quot;flight_no&quot;: &quot;LK415&quot;, &quot;date&quot;: &quot;05/08/2025&quot;})</div>
+<div class='meta'>sent: 3 msg in context · 11 tools offered</div>
+<div class='meta'>← stop_reason=<b>tool_use</b> · blocks: tool_use · in 3,848 / out 81 · 2.0s</div>
+<div class='tool'>⚙ get_flight_status({&quot;flight_no&quot;: &quot;LK108&quot;, &quot;date&quot;: &quot;2025-05-08&quot;})</div>
 </div>
 <div class='loopback'>↺ stop_reason=tool_use → results appended → loop continues</div>
 <div class='turn'>
 <div class='hd'>Turn 3 → messages.create()</div>
-<div class='meta'>sent: 5 msg in context · 9 tools offered</div>
-<div class='meta'>← stop_reason=<b>tool_use</b> · blocks: tool_use · in 3,023 / out 81 · 1.6s</div>
-<div class='tool'>⚙ get_flight_status({&quot;flight_no&quot;: &quot;LK415&quot;, &quot;date&quot;: &quot;2025-05-08&quot;})</div>
-</div>
-<div class='loopback'>↺ stop_reason=tool_use → results appended → loop continues</div>
-<div class='turn'>
-<div class='hd'>Turn 4 → messages.create()</div>
-<div class='meta'>sent: 7 msg in context · 9 tools offered</div>
-<div class='meta'>← stop_reason=<b>tool_use</b> · blocks: tool_use · in 3,341 / out 133 · 2.0s</div>
-<div class='tool'>⚙ check_policy({&quot;pnr&quot;: &quot;K7PQ2M&quot;, &quot;cause_code&quot;: &quot;WX&quot;, &quot;delay_minutes&quot;: 0, &quot;status&quot;: &quot;CANCELLED&quot;})</div>
+<div class='meta'>sent: 5 msg in context · 11 tools offered</div>
+<div class='meta'>← stop_reason=<b>tool_use</b> · blocks: thinking, tool_use · in 4,157 / out 140 · 2.3s</div>
+<div class='tool'>⚙ check_policy({&quot;pnr&quot;: &quot;T9WN4C&quot;, &quot;cause_code&quot;: &quot;WX&quot;, &quot;delay_minutes&quot;: 150, &quot;status&quot;: &quot;DELAYED&quot;})</div>
 </div>
 <div class='loopback'>↺ stop_reason=tool_use → results appended → loop continues</div>
 <div class='turn done'>
-<div class='hd'>Turn 5 → messages.create()</div>
-<div class='meta'>sent: 9 msg in context · 9 tools offered</div>
-<div class='meta'>← stop_reason=<b class='stopped'>end_turn</b> · blocks: text · in 4,072 / out 358 · 5.0s</div>
+<div class='hd'>Turn 4 → messages.create()</div>
+<div class='meta'>sent: 7 msg in context · 11 tools offered</div>
+<div class='meta'>← stop_reason=<b class='stopped'>end_turn</b> · blocks: text · in 4,779 / out 393 · 6.6s</div>
 </div>
 <p class='foot'>Generated by readout.py · Larkspur Airlines is a fictional training scenario · Confidential / do not distribute</p></div>
-<script type="application/json" id="evidence">{"generated": "2026-09-15T18:07:39", "pod": "<your pod name>", "banked_by": "Louis", "banked": {"1.3": "4C2-404", "1.2": "B5E-631", "1.4": "F25-DFC", "2.1": "90D-842", "2.2": "068-157"}, "trace": {"turns": 5, "tool_calls": 4, "tool_names": ["lookup_booking", "get_flight_status", "get_flight_status", "check_policy"], "saw_thinking": false, "used_format": false, "used_tool_choice_none": false, "streamed": false, "deltas_seen": 0, "tokens": {"input": 15928, "output": 738, "cache_read": 0, "cache_write": 0}, "cache_hit_ratio": null, "elapsed": 17.4}, "all_shapes": null}</script>
+<script type="application/json" id="evidence">{"generated": "2026-09-16T15:36:17", "pod": "monday", "banked_by": "louis", "banked": {"1.3": "4C2-404", "1.2": "B5E-631", "1.4": "F25-DFC", "2.1": "90D-842", "2.2": "068-157", "3.1": "E75-5B9"}, "trace": {"turns": 4, "tool_calls": 3, "tool_names": ["lookup_booking", "get_flight_status", "check_policy"], "saw_thinking": true, "used_format": false, "used_tool_choice_none": false, "streamed": false, "deltas_seen": 0, "tokens": {"input": 16297, "output": 697, "cache_read": 0, "cache_write": 0}, "cache_hit_ratio": null, "elapsed": 18.4}, "all_shapes": null}</script>
