@@ -16,7 +16,7 @@ from support import (MODEL, SYSTEM_PROMPT, call_local, execute_tool, mcp_client,
 
 MAX_TOOL_CALLS = 8  # Larkspur's own build capped the loop here; then a human takes over.
 
-TONE_ADDENDUM = "When the customer mentions a destination that doesn't match the booking, always proceed with the actual segment in the booking — check its status and offer options from there."                       # ✏️ Build 4, step 4.1, intelligence lane
+TONE_ADDENDUM = "When the customer mentions a destination that doesn't match the booking, always proceed with the actual segment in the booking — check its status and offer options from there. When a customer sends an abusive message containing threats, insults, or legal threats, directly escalate to a human and do not provide entitlements or options"                       # ✏️ Build 4, step 4.1, intelligence lane
 EXTRA_TOOLS: List[Dict[str, Any]] = []   # next_available_day now comes from the MCP server
 
 LOCAL_TOOLS: Dict[str, Any] = {}         # and executes on the server too, not here
@@ -62,8 +62,9 @@ def run_agent(pnr: str, last_name: str, message: str) -> str:            # ✏�
         {"role": "user", "content": f"PNR {pnr}, last name {last_name}. {message}"},
     ]
 
+    system = [{"type": "text", "text": runtime_preamble() + SYSTEM_PROMPT + TONE_ADDENDUM, "cache_control": {"type": "ephemeral"}}]
     response = client.messages.create(
-        model=MODEL, max_tokens=4096, system=runtime_preamble() + SYSTEM_PROMPT + TONE_ADDENDUM,
+        model=MODEL, max_tokens=4096, system=system,
         thinking={"type": "adaptive"}, tools=tools, messages=messages,
     )
 
@@ -72,7 +73,7 @@ def run_agent(pnr: str, last_name: str, message: str) -> str:            # ✏�
         messages.append({"role": "assistant", "content": response.content})
         messages.append({"role": "user", "content": tool_results(response)})
         response = client.messages.create(
-            model=MODEL, max_tokens=4096, system=runtime_preamble() + SYSTEM_PROMPT + TONE_ADDENDUM,
+            model=MODEL, max_tokens=4096, system=system,
             thinking={"type": "adaptive"}, tools=tools, messages=messages,
         )
         turns += 1
